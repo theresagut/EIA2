@@ -5,6 +5,6 @@ var name = prompt("Wie heißt du?");
 
 if (name != null) {
     document.getElementById("solution").innerHTML =
-    "Schön dass du vorbei schaust "  +  name + " :)";
+    "Wow "  +  name + " kann klicken.";
     }
 }
