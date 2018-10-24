@@ -5,114 +5,152 @@ Datum: 21.10.2018
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 Er wurde nicht kopiert und auch nicht diktiert. */
 
-/* Ehrlich gesagt sehr viel hilfe aus Nico Hermanns Code genommen. Habe trotzdem versucht einen eigenen Code zu schreiben.*/
+/* Ehrlich gesagt sehr viel Hilfe aus Nico Hermanns Code genommen. Habe trotzdem versucht einen eigenen Code zu schreiben.*/
+
 namespace uno {
-var uno;
-(function (uno) {
-    var k0 = {
+    
+    interface karten {
+        name: string;
+        rot: number;
+        gelb: number;
+        gruen: number;
+        blau: number;
+        black: number;
+        }
+        
+    let k0 = {
         name: "0",
         rot: 1,
         gelb: 1,
         gruen: 1,
         blau: 1,
+        black: 0,
     };
-    var k1 = {
+    let k1 = {
         name: "1",
         rot: 2,
         gelb: 2,
         gruen: 2,
         blau: 2,
+        black: 0,
     };
-    var k2 = {
+    let k2 = {
         name: "2",
         rot: 2,
         gelb: 2,
         gruen: 2,
         blau: 2,
+        black: 0,
     };
-    var k3 = {
+    let k3 = {
         name: "3",
         rot: 2,
         gelb: 2,
         gruen: 2,
         blau: 2,
+        black: 0,
     };
-    var k4 = {
+    let k4 = {
         name: "4",
         rot: 2,
         gelb: 2,
         gruen: 2,
         blau: 2,
+        black: 0,
     };
-    var k5 = {
+    let k5 = {
         name: "5",
         rot: 2,
         gelb: 2,
         gruen: 2,
         blau: 2,
+        black: 0,
     };
-    var k6 = {
+    let k6 = {
         name: "6",
         rot: 2,
         gelb: 2,
         gruen: 2,
         blau: 2,
+        black: 0,
     };
-    var k7 = {
+    let k7 = {
         name: "7",
         rot: 2,
         gelb: 2,
         gruen: 2,
         blau: 2,
+        black: 0,
     };
-    var k8 = {
+    let k8 = {
         name: "8",
         rot: 2,
         gelb: 2,
         gruen: 2,
         blau: 2,
+        black: 0,
     };
-    var k9 = {
+    let k9 = {
         name: "9",
         rot: 2,
         gelb: 2,
         gruen: 2,
         blau: 2,
+        black: 0,
     };
-    var k10 = {
+    let k10 = {
         name: "R",
         rot: 2,
         gelb: 2,
         gruen: 2,
         blau: 2,
+        black: 0,
     };
-    var k11 = {
+    let k11 = {
         name: "+2",
         rot: 2,
         gelb: 2,
         gruen: 2,
         blau: 2,
+        black: 0,
     };
-    var k12 = {
+    let k12 = {
         name: "A",
         rot: 2,
         gelb: 2,
         gruen: 2,
         blau: 2,
+        black: 0,
     };
-    var s1 = 4; //+4 Karten und Farbwahl
-    var s2 = 4; //Farbwahl
-    var c = ""; //Farbcode
-    var AlleKarten = [k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12]; //Array
-    /*   FUNKTIONEN           */
-    function random(Nummer) {
-        return Math.floor(Math.random() * Math.floor(Karte));
+    let k13 = {
+        name: "S",
+        rot: 0,
+        gelb: 0,
+        gruen: 0,
+        blau: 0,
+        black: 4,
+    };
+    let k14 = {
+        name: "4+",
+        rot: 0,
+        gelb: 0,
+        gruen: 0,
+        blau: 0,
+        black: 4,
+    };
+    
+    let c = ""; //Farbcode
+    let AlleKarten = [k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14]; //Array
+    
+    /*  Funktion für Random */
+    function random (n: number) {
+        return Math.floor(Math.random() * Math.floor(n));
     }
-    function placeDiv(_color, Nummer, _x) {
+    function placeDiv(_color: string, n: number, _x:number) {
         let div = document.createElement("div");
         document.body.appendChild(div);
         div.setAttribute("id", "a" + _x); 
-        document.getElementById("a" + _x).innerHTML += Nummer;
+        document.getElementById("a" + _x).innerHTML += n;
     
         let s = div.style;
         s.border = "solid black";
@@ -124,6 +162,7 @@ var uno;
         s.left = (_x + 0.5) * 100 + "px";
         s.bottom = 40 + "px";
         s.borderRadius = 5 + "px";
+        
         if (_color == "#000000") {
             s.color = "white";
         }
@@ -131,18 +170,18 @@ var uno;
             s.color = "white";
         }
     }
-    /*   FUNKTIONEN ENDE  */
+   
     /* prompt function*/
     function main() {
-        let z;
-        let i = prompt("Wie viele Karten möchtest du haben pro Spieler?");
+        let z : number;
+        let i = prompt("Wie viele Karten möchtest du haben?");
         z = Number(i);
         for (let d = 0; d < z; d++) {
             let l = random(15); //l = Zufallswert von 0-14 (alle Karten)
             if (l == 13 && s1 > 0) {
                 c = "#000000";
                 s1--;
-                placeDiv(c, "+4", d);
+                placeDiv(c, string : "+4", d);
                 continue;
             }
             else if (l == 13 && s1 <= 0) {
@@ -245,5 +284,5 @@ var uno;
         Ablage();
     }
     document.addEventListener('DOMContentLoaded', main);
-})(uno || (uno = {}));
+(uno || (uno = {}));
     }
