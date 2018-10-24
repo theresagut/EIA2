@@ -174,16 +174,15 @@ namespace uno {
     /* prompt function*/
     function main() {
         let z : number;
-        let i = prompt("Wie viele Karten möchtest du haben?");
+        let i: string = prompt("Wie viele Karten möchtest du haben?");
         z = Number(i);
-        for (let d = 0; d < z; d++) {
-            let l = random(15); //l = Zufallswert von 0-14 (alle Karten)
-            if (l == 13 && s1 > 0) {
-                c = "#000000";
-                s1--;
-                placeDiv(c, string : "+4", d);
-                continue;
-            }
+        
+            
+        let x: number;
+        let input: string = prompt("Wie viele Karten moechtest du?"); // Abfrage an Spieler
+        x = Number(input); // Input (Nummer) wird an x übergeben 
+
+
             else if (l == 13 && s1 <= 0) {
                 d--;
                 continue;
