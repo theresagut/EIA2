@@ -6,7 +6,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 Er wurde nicht kopiert und auch nicht diktiert. */
 
 
-#Karten {
+#karten {
 	borderRadius: 10px;
 	fontSize: 1 + "em";
     textAlign: "center";
@@ -18,7 +18,7 @@ Er wurde nicht kopiert und auch nicht diktiert. */
     bottom: 40 + "px";
 }
 
-#Ablagestapel {     
+#ablage {     
 	 width : 180 + "px";
      height : 280 + "px";
      top : 30 + "px";
@@ -32,7 +32,7 @@ Er wurde nicht kopiert und auch nicht diktiert. */
      background-Color : "#aaaacc";
 } 
 
-#Nachziehstapel{
+#stapel{
       width : 180 + "px";
       height : 280 + "px";
       left : 30 + "px";

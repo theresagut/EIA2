@@ -175,74 +175,61 @@ namespace uno {
         let i: string = prompt("Wie viele Karten möchtest du haben?");
         z = Number(i);
         
-          if
+           for (let o: number = 0; o < x; o++) { // Wie viele Karten zum Spielen 
+            let u: number = randomKarte(15); // zufällige Auswahl der Karten 
+            let t: number = randomKarte(5); //Zufallsgenerator für Ermittlung der Farben
 
-            else if (l == 13 && s1 <= 0) {
-                d--;
-                continue;
-            }
-            else {
-                if (l == 14 && s2 > 0) {
-                    c = "#000000";
-                    s2--;
-                    placeDiv(c, "F", d);
-                    continue;
-                }
-                else if (l == 14 && s2 <= 0) {
-                    d--;
-                    continue;
-                }
-                else {
-                    let r = random(4); //random Zahl von 0-3 jeweils eine Farbe
-                    switch (r) {
-                        case 0:
-                            c = "#ff0000"; //rot
-                            if (AlleKarten[l].rot > 0) {
-                                placeDiv(c, AlleKarten[l].name, d);
-                                AlleKarten[l].rot--;
-                                continue;
-                            }
-                            else {
-                                d--;
-                                continue;
-                            }
-                        case 1:
-                            c = "#00ff00"; //gr�n
-                            if (AlleKarten[l].gruen > 0) {
-                                placeDiv(c, AlleKarten[l].name, d);
-                                AlleKarten[l].gruen--;
-                                continue;
-                            }
-                            else {
-                                d--;
-                                continue;
-                            }
-                        case 2:
-                            c = "#0000ff"; //blau
-                            if (AlleKarten[l].blau > 0) {
-                                placeDiv(c, AlleKarten[l].name, d);
-                                AlleKarten[l].blau--;
-                                continue;
-                            }
-                            else {
-                                d--;
-                                continue;
-                            }
-                        case 3:
-                            c = "#ffff00"; //gelb
-                            if (AlleKarten[l].gelb > 0) {
-                                placeDiv(c, AlleKarten[l].name, d);
-                                AlleKarten[l].gelb--;
-                                continue;
-                            }
-                            else {
-                                d--;
-                                continue;
-                            }
+            
+            switch (t) {
+                case 0:
+                    colour = "#ff1111";
+                    if (deck[u].red > 0) {
+                        placeDiv(colour, cardscomplete[u].name, o);
+                        cardscomplete[u].red--;
+                        continue;
                     }
-                }
+                case 1:
+                    colour = "#ffee55";
+                    if (cardscomplete[u].yellow > 0) {
+                        placeDiv(colour, cardscomplete[u].name, o);
+                        cardscomplete[u].yellow--;
+                        continue;
+                    }
+
+                case 2:
+                    colour = "#22aadd";
+                    if (cardscomplete[u].blue > 0) {
+                        placeDiv(colour, cardscomplete[u].name, o);
+                        cardscomplete[u].blue--;
+                        continue;
+                    }
+
+                case 3:
+                    colour = "#11aa11"
+                    if (cardscomplete[u].green > 0) {
+                        placeDiv(colour, cardscomplete[u].name, o);
+                        cardscomplete[u].green--;
+                        continue;
+
+                    }
+
+                case 4:
+                    colour = "black";
+                    if (cardscomplete[u].black > 0) {
+                        placeDiv(colour, cardscomplete[u].name, o);
+                        cardscomplete[u].black--;
+                        continue;
+                    }
+
+                    else {
+                        o--;
+                        continue
+                    }
+
             }
+
         }
+
         /*function Stapel (Karte) {
             let div = document.createElement("div");
             document.body.appendChild(div);
@@ -257,7 +244,7 @@ namespace uno {
             s.borderRadius = 5 + "px";
         }
     */
-      /*  function Ablage() {
+       function Ablage() {
             let div = document.createElement("div");
             document.body.appendChild(div);
             div.setAttribute("id", "Ablage");
@@ -272,12 +259,12 @@ namespace uno {
             s.right = 60 + "px";
             s.top = 20 + "px";
         }
-    */
-        for (let i = 0; i < 3; i++) {
-            Stapel(i);
-        }
-        Ablage();
-    }
-    document.addEventListener('DOMContentLoaded', main);
-(uno || (uno = {}));
     
+     
+        AblageStapel();
+        Nachziehbereich();
+        //Aufruf der Funktionen
+    }
+
+    document.addEventListener("DOMContentLoaded", (UNO));
+}
