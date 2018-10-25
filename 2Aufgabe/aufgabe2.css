@@ -6,7 +6,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 Er wurde nicht kopiert und auch nicht diktiert. */
 
 /* Karten stapel*/
-div {
+#stapel {
 	border: solid black;
 	position: absolut;
 	background-color: #f0f0f0;
@@ -15,13 +15,24 @@ div {
 }
 
 /* Karten ablage*/
-div {
+#ablage {
 	border: solid black;
 	text-align: center;
 	position: absolute;
 	background-color: #F2EFFB;
 	width: 90px;
 	height: 200px;	
+}
+
+/*karten*/
+#karten {
+	border: solid black;
+	text-align: center;
+	position: absolute;
+	background-color: #F2EFFB;
+	width: 90px;
+	height: 200px;	
+	
 }
 
 

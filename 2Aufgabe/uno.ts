@@ -144,7 +144,7 @@ namespace uno {
     function random (n: number) {
         return Math.floor(Math.random() * Math.floor(n));
     }
-    function placeDiv(_color: string, n: number, _x:number) {
+   /* function placeDiv(_color: string, n: number, _x:number) {
         let div = document.createElement("div");
         document.body.appendChild(div);
         div.setAttribute("id", "a" + _x); 
@@ -167,7 +167,7 @@ namespace uno {
         if (_color == "#0000ff") {
             s.color = "white";
         }
-    }
+    }*/
    
     /* prompt function*/
     function main() {
@@ -257,7 +257,7 @@ namespace uno {
             s.borderRadius = 5 + "px";
         }
     */
-        function Ablage() {
+      /*  function Ablage() {
             let div = document.createElement("div");
             document.body.appendChild(div);
             div.setAttribute("id", "Ablage");
@@ -272,6 +272,7 @@ namespace uno {
             s.right = 60 + "px";
             s.top = 20 + "px";
         }
+    */
         for (let i = 0; i < 3; i++) {
             Stapel(i);
         }
