@@ -5,8 +5,6 @@ Datum: 21.10.2018
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 Er wurde nicht kopiert und auch nicht diktiert. */
 
-/* Ehrlich gesagt sehr viel Hilfe aus Nico Hermanns Code genommen. Habe trotzdem versucht einen eigenen Code zu schreiben.*/
-
 namespace uno {
     
     interface karten {
