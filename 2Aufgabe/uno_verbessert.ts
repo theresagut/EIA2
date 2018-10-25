@@ -32,6 +32,7 @@ namespace Uno2{
             }
         }
     
+        
     //random
 
     function random (n: number) {
