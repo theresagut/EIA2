@@ -140,7 +140,7 @@ namespace uno {
     };
     
     let c = ""; //Farbcode
-    let AlleKarten = [k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14]; //Array
+    let deck : karten = [k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14]; //Array
     
     /*  Funktion für Random */
     function random (n: number) {
@@ -177,11 +177,7 @@ namespace uno {
         let i: string = prompt("Wie viele Karten möchtest du haben?");
         z = Number(i);
         
-            
-        let x: number;
-        let input: string = prompt("Wie viele Karten moechtest du?"); // Abfrage an Spieler
-        x = Number(input); // Input (Nummer) wird an x übergeben 
-
+          if
 
             else if (l == 13 && s1 <= 0) {
                 d--;
@@ -284,4 +280,4 @@ namespace uno {
     }
     document.addEventListener('DOMContentLoaded', main);
 (uno || (uno = {}));
-    }
+    
