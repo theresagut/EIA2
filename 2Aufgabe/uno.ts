@@ -243,7 +243,7 @@ namespace uno {
                 }
             }
         }
-        function Stapel (Karte) {
+        /*function Stapel (Karte) {
             let div = document.createElement("div");
             document.body.appendChild(div);
             let s = div.style;
@@ -256,6 +256,7 @@ namespace uno {
             s.top = (Karte + 0.5) * 10 + "px";
             s.borderRadius = 5 + "px";
         }
+    */
         function Ablage() {
             let div = document.createElement("div");
             document.body.appendChild(div);
