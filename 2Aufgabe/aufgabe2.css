@@ -5,34 +5,44 @@ Datum: 25.10.2018
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 Er wurde nicht kopiert und auch nicht diktiert. */
 
-/* Karten stapel*/
-#stapel {
-	border: solid black;
-	position: absolut;
-	background-color: #f0f0f0;
-	width: 90px;
-	height: 150 px;
+
+#Karten {
+	borderRadius: 10px;
+	fontSize: 1 + "em";
+    textAlign: "center";
+    position: "absolute";
+    background-Color: colour;
+    width: 100 + "px";
+    height: 200 + "px";
+    left: n * 110 + "px";
+    bottom: 40 + "px";
 }
 
-/* Karten ablage*/
-#ablage {
-	border: solid black;
-	text-align: center;
-	position: absolute;
-	background-color: #F2EFFB;
-	width: 90px;
-	height: 200px;	
-}
+#Ablagestapel {     
+	 width : 180 + "px";
+     height : 280 + "px";
+     top : 30 + "px";
+     right : 100 + "px";
+     borderRadius : 5 + "px";
+     fontSize : 1.5 + "em";
+     border : "outset black";
+     color : "black";
+     textAlign : "center";
+     position : "absolute";
+     background-Color : "#aaaacc";
+} 
 
-/*karten*/
-#karten {
-	border: solid black;
-	text-align: center;
-	position: absolute;
-	background-color: #F2EFFB;
-	width: 90px;
-	height: 200px;	
-	
+#Nachziehstapel{
+      width : 180 + "px";
+      height : 280 + "px";
+      left : 30 + "px";
+      top : 30 + "px";
+      borderRadius : 5 + "px";
+      fontSize : 1.5 + "em";
+      border : "outset black";
+      textAlign : "center";
+      position : "absolute";
+      background-Color : "#aaaacc";
 }
 
 
