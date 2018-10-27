@@ -29,8 +29,8 @@ namespace Uno2 {
     }
 
     //prompt funktion
+    let x: number;
     function main(): void {
-        let x: number;
         let y: string = prompt("Wie viele Karten möchtest du haben?");
         x = Number(y);
 
@@ -40,9 +40,33 @@ namespace Uno2 {
 
     //random
     function random() {
-        let r: number = Math.floor(Math.random() * (deck.length - 1));
-
-        handcards.push(deck[r]); //Karte wird in handcards kopiert
-        deck.splice(r); //Karte die heraus kopiert wurde, wurde im deck gelöscht
+        for(let k: number= 0; k<x; k++) {
+            let r: number = Math.floor(Math.random() * (deck.length - 1));
+             handcards.push(deck[r]); //Karte wird in handcards kopiert
+             deck.splice(r); //Karte die heraus kopiert wurde, wurde im deck gelöscht
+        //hmtl muss hier in die schleife
+            
+        
+        }
+       
     }
-}
+    
+    //den inhalt in html schreiben
+     function writeHTML() : void {
+      
+        var node : any = document.getElementById("alles");
+        var childNodeHTML : string;
+        var i: number = 0;
+
+            childNodeHTML = "";
+   
+        
+
+            
+            console.log (childNodeHTML);
+            
+            node.innerHTML += childNodeHTML;
+            
+            i++;            
+        }              
+    }  

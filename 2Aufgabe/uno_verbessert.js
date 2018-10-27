@@ -20,8 +20,8 @@ var Uno2;
         }
     }
     //prompt funktion
+    let x;
     function main() {
-        let x;
         let y = prompt("Wie viele Karten möchtest du haben?");
         x = Number(y);
         //Aufruf der Funktionen
@@ -29,9 +29,21 @@ var Uno2;
     }
     //random
     function random() {
-        let r = Math.floor(Math.random() * (deck.length - 1));
-        handcards.push(deck[r]); //Karte wird in handcards kopiert
-        deck.splice(r); //Karte die heraus kopiert wurde, wurde im deck gelöscht
+        for (let k = 0; k < x; k++) {
+            let r = Math.floor(Math.random() * (deck.length - 1));
+            handcards.push(deck[r]); //Karte wird in handcards kopiert
+            deck.splice(r); //Karte die heraus kopiert wurde, wurde im deck gelöscht
+        }
+    }
+    //den inhalt in html schreiben
+    function writeHTML() {
+        var node = document.getElementById("alles");
+        var childNodeHTML;
+        var i = 0;
+        childNodeHTML = "";
+        console.log(childNodeHTML);
+        node.innerHTML += childNodeHTML;
+        i++;
     }
 })(Uno2 || (Uno2 = {}));
 //# sourceMappingURL=uno_verbessert.js.map
