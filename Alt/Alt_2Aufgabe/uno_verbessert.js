@@ -1,3 +1,4 @@
+"use strict";
 /* Aufgabe: Aufgabe 2;
 Name: Theresa Josephine Gut;
 Matrikel: 259110
@@ -33,6 +34,7 @@ var Uno2;
             let r = Math.floor(Math.random() * (deck.length - 1));
             handcards.push(deck[r]); //Karte wird in handcards kopiert
             deck.splice(r); //Karte die heraus kopiert wurde, wurde im deck gelöscht
+            //hmtl muss hier in die schleife
         }
     }
     //den inhalt in html schreiben

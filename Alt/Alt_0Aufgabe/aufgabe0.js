@@ -1,3 +1,4 @@
+"use strict";
 // Begrüßung
 function Funktion() {
     var name = prompt("Wie heißt du?");
