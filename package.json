@@ -1,0 +1,23 @@
+{
+  "name": "eia2",
+  "version": "1.0.0",
+  "description": "endabgabe",
+  "main": "index.js",
+  "dependencies": {
+    "tslint": "^5.20.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "endabgabe/server/server.js"
+  }, 
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theresagut/EIA2.git"
+  },
+  "author": "Theresa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theresagut/EIA2/issues"
+  },
+  "homepage": "https://github.com/theresagut/EIA2#readme"
+}
