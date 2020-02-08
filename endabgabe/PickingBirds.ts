@@ -10,7 +10,7 @@ namespace Endabgabe {
         constructor(_size: number, _position?: Vector) { // position muss nicht genutzt werden, ist optional
 
 
-           super (_position); // ruft die Position aus der Moveable auf - wieso?
+            super(_position); // ruft die Position aus der Moveable auf - wieso?
             console.log("picking Bird constructor");
 
             this.bodycolor = getRandomColor();
@@ -21,10 +21,10 @@ namespace Endabgabe {
 
             else
                 this.position = new Vector(Math.random() * crc2.canvas.width, Math.floor(Math.random() * 400));
-    // Math Random für Verteilung Breite * Höhe Canvas, Wert (größten & aufgerundet) * random Nr *600 (Verteilung auf Höhe des Canvas)
+            // Math Random für Verteilung Breite * Höhe Canvas, Wert (größten & aufgerundet) * random Nr *600 (Verteilung auf Höhe des Canvas)
 
-            this.velocity = new Vector(Math.random() -1 * 7,(Math.random() * 2 + Math.random() - 2));
-    // -1 = vorwärts, 7 = Geschw. -2 und +2 (gehen langsam hoch und runter)
+            this.velocity = new Vector(Math.random() - 1 * 7, (Math.random() * 2 + Math.random() - 2));
+            // -1 = vorwärts, 7 = Geschw. -2 und +2 (gehen langsam hoch und runter)
 
         }
 
@@ -49,7 +49,7 @@ namespace Endabgabe {
             crc2.restore();
             crc2.closePath();
             //bill//Schnabel
-            
+
             //body
             crc2.save();
             crc2.translate(this.position.x, this.position.y);
@@ -61,7 +61,7 @@ namespace Endabgabe {
             crc2.closePath();
 
             //wings
-            
+
 
         }
 
