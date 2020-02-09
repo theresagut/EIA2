@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+h1 {
+	margin-left: 140px;
+	font-size: 5.0em;
+	font-family: 'Shadows Into Light', cursive;
+}
+
+body {
+	background-image: url("Abschlussaufgabe hintergrund.jpg");
+	background-size: 100%;
+}
+
+#Anleitung {
+	margin-left: 10px;
+	height: 130px;
+	width: 420px;
+	margin-top: 50px;
+	font-size: 2.35em;
+	font-family: 'Quicksand', sans-serif;
+	padding-left: 5px;
+	border: 5px solid black;
+}
+
+input {
+	margin-left: 280px;
+	height: 120px;
+	width: 390px;
+	margin-bottom: 5px;
+	margin-top: 70px;
+	font-size: 2.0em;
+	font-family: 'Quicksand', sans-serif;
+	padding-left: 20px;
+	border: 5px solid black;
+}
+
+.invisible {
+	display: none;
+}
+
+#yourScore {
+	font-size: 3.0em;
+	font-family: 'Quicksand', sans-serif;
+	border: 5px solid black;
+	height: 40px;
+	width: 870px;
+	padding-left: 500px;
+	background-color: white;
+	margin-top: 130px;
+}
+
+#reload {
+	font-size: 2.0em;
+	font-family: 'Quicksand', sans-serif;
+	border: 5px solid black;
+	height: 50px;
+	width: 390px;
+	margin-left: 520px;
+}
+
+#scores {
+	
+	margin-top: 5px;
+	font-size: 1.0em;
+	font-family: 'Quicksand', sans-serif;
+	background-color: white;
+	border: 5px solid black;
+}
+
+#überschrift {
+	margin-left: 650px;
+	font-size: 5.0em;
+	font-family: 'Shadows Into Light', cursive;
+}
+
+#info {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.35em;
+	margin-left: 280px;
+	height: 120px;
+	width: 825px;
+	background-color: white;
+	border: 5px solid black;
+	margin-top: 50px;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
