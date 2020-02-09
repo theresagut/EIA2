@@ -90,7 +90,7 @@ namespace Endabgabe {
 
         }
         if (snowball) {
-            if (snowball.xP >= xMouse - 20 && snowball.xP <= xMouse + 20) { 
+            if (snowball.xP >= xMouse - 20 && snowball.xP <= xMouse + 20) {
                 if (snowball.yP >= yMouse - 20 && snowball.yP <= yMouse + 20) {
                     console.log("ball angekommen");
                     checkIfHit();
@@ -141,25 +141,25 @@ namespace Endabgabe {
                                     /*else if (objects[a].typ == "pickingBirds") {
                                         score += 10;
                                     }*/
-                                   
-                                    
+
+
                                 }
                             }
                         }
                     }
                 }
             }
-        }  
+        }
 
         for (let i: number = 0; i < objects.length; i++) {
-        if (objects[i].typ == "snowball") {
-            objects.splice(i, 1);
-            console.log("ball löschen");
-            console.log(objects[i]);
+            if (objects[i].typ == "snowball") {
+                objects.splice(i, 1);
+                console.log("ball löschen");
+                console.log(objects[i]);
+            }
         }
-    }
         snowball = null;
-}
+    }
 
 
 
@@ -174,7 +174,7 @@ namespace Endabgabe {
 
     function generateBird(): void {
         for (let i: number = 0; i < 5; i++) {
-    
+
             let bird: Birds = new Birds();
             objects.push(bird);
             birds.push(bird);
@@ -196,7 +196,7 @@ namespace Endabgabe {
         ende.classList.remove("canvassize");
         let reload: HTMLElement = <HTMLElement>document.getElementById("reload");
         ende.classList.remove("canvassize");
-        
+
 
         document.getElementById("yourScore").innerText = "Deine Punktzahl:" + " " + score.toString();
         document.getElementById("reload").addEventListener("click", reload);
@@ -268,18 +268,18 @@ namespace Endabgabe {
         crc2.fill();
     }
 
-    
+
 
     function drawHill(): void {
-    let gradiant: CanvasGradient = crc2.createLinearGradient(0, 0, 0, crc2.canvas.height);
-    gradiant.addColorStop(0, "HSL(197,71%,73%)");
-    gradiant.addColorStop(golden, "white");
-    gradiant.addColorStop(1, "HSL(0, 100%, 99%)");
+        let gradiant: CanvasGradient = crc2.createLinearGradient(0, 0, 0, crc2.canvas.height);
+        gradiant.addColorStop(0, "HSL(197,71%,73%)");
+        gradiant.addColorStop(golden, "white");
+        gradiant.addColorStop(1, "HSL(0, 100%, 99%)");
 
-    crc2.fillStyle = gradiant;
-    crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+        crc2.fillStyle = gradiant;
+        crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
     }
-  
+
     function drawSun(): void {
         crc2.beginPath();
         crc2.arc(150, 100, 70, 0, 2 * Math.PI);
