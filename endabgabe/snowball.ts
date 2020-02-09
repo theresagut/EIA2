@@ -9,7 +9,7 @@ namespace Endabgabe {
             super();
             this.target = [_x, _y];
             this.xP = 700;
-            this.yP = 800;
+            this.yP = 200;
             this.scale = 70;
             this.xD = this.target[0] - this.xP;
             this.yD = this.target[1] - this.yP;
