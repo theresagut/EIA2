@@ -4,12 +4,13 @@
   "description": "endabgabe",
   "main": "index.js",
   "dependencies": {
+    "@types/node": "^13.7.0",
     "tslint": "^5.20.1"
   },
   "devDependencies": {},
   "scripts": {
     "start": "node endabgabe/server/server.js"
-  }, 
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/theresagut/EIA2.git"
