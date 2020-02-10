@@ -1,3 +1,5 @@
+//import { start } from "repl";
+
 namespace Endabgabe {
 
     window.addEventListener("load", init);
@@ -16,6 +18,9 @@ namespace Endabgabe {
     export let name: string;
     export let score: number = 0;
     let gameEndbool: boolean = false;
+    export let canvas: HTMLCanvasElement;
+    let start: HTMLButtonElement;
+
 
     function listeners(): void {
         console.log("listeners");
@@ -25,14 +30,14 @@ namespace Endabgabe {
 
     }
     function init(): void {
-        let anleitung: HTMLElement = <HTMLElement>document.getElementById("Anleitung");
-        anleitung.addEventListener("click", startGame);
-        let ende: HTMLElement = <HTMLElement>document.getElementById("ende");
-        ende.classList.add("canvassize");
-        //Nach laden der Seite wird die Funktion init aufgerufen, die an das HtmlElement "Anleitung" einen click-Eventlistener anhängt, 
-        //der die Funktion startGame aufruft
-        //an das HTML Element "ende" die Klasse 
+        document.getElementById("start").addEventListener("click", startGame);
+        document.getElementById("ende").classList.add("invisible");
+
     }
+    //Nach laden der Seite wird die Funktion init aufgerufen, die an das HtmlElement "Anleitung" einen click-Eventlistener anhängt, 
+    //der die Funktion startGame aufruft
+    //an das HTML Element "ende" die Klasse 
+
 
 
     function startGame(): void {
@@ -43,9 +48,10 @@ namespace Endabgabe {
 
         console.log("maininit");
 
-
-        let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
+        canvas = document.getElementsByTagName("canvas")[0];
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
+
+
 
 
         drawSky();
@@ -70,8 +76,8 @@ namespace Endabgabe {
 
 
     function anzeigeCanvas(): void {
-        document.getElementsByTagName("canvas")[0].classList.remove("canvassize");
-        document.getElementsByTagName("div")[0].classList.add("canvassize");
+        document.getElementsByTagName("canvas")[0].classList.remove("invisible");
+        document.getElementsByTagName("div")[0].classList.add("invisible");
 
     }
 
@@ -173,7 +179,7 @@ namespace Endabgabe {
     }
 
     function generateBird(): void {
-        for (let i: number = 0; i < 5; i++) {
+        for (let i: number = 0; i < 15; i++) {
 
             let bird: Birds = new Birds();
             objects.push(bird);
@@ -191,24 +197,17 @@ namespace Endabgabe {
     }*/
 
     function gameEnds(): void {
-        document.getElementsByTagName("canvas")[0].classList.add("canvassize");
-        let ende: HTMLElement = <HTMLElement>document.getElementById("ende");
-        ende.classList.remove("canvassize");
-        let reload: HTMLElement = <HTMLElement>document.getElementById("reload");
-        ende.classList.remove("canvassize");
-
-
+        document.getElementsByTagName("canvas")[0].classList.add("invisible");
+        document.getElementById("ende").classList.remove("invisible");
+        document.getElementById("reload").classList.remove("invisible");
         document.getElementById("yourScore").innerText = "Deine Punktzahl:" + " " + score.toString();
         document.getElementById("reload").addEventListener("click", reload);
 
         DatabaseClient.insert();
         DatabaseClient.getHighscore();
 
-
-
-
-
     }
+
     function reload(): void {
         window.location.reload();
     }

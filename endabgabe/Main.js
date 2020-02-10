@@ -1,4 +1,5 @@
 "use strict";
+//import { start } from "repl";
 var Endabgabe;
 (function (Endabgabe) {
     window.addEventListener("load", init);
@@ -13,28 +14,27 @@ var Endabgabe;
     let snowball;
     Endabgabe.score = 0;
     let gameEndbool = false;
+    let start;
     function listeners() {
         console.log("listeners");
         document.getElementsByTagName("canvas")[0].addEventListener("click", mouseEvent);
         //"Click"-Eventlistener vom Typ MouseEvent an canvas
     }
     function init() {
-        let anleitung = document.getElementById("Anleitung");
-        anleitung.addEventListener("click", startGame);
-        let ende = document.getElementById("ende");
-        ende.classList.add("canvassize");
-        //Nach laden der Seite wird die Funktion init aufgerufen, die an das HtmlElement "Anleitung" einen click-Eventlistener anhängt, 
-        //der die Funktion startGame aufruft
-        //an das HTML Element "ende" die Klasse 
+        document.getElementById("start").addEventListener("click", startGame);
+        document.getElementById("ende").classList.add("invisible");
     }
+    //Nach laden der Seite wird die Funktion init aufgerufen, die an das HtmlElement "Anleitung" einen click-Eventlistener anhängt, 
+    //der die Funktion startGame aufruft
+    //an das HTML Element "ende" die Klasse 
     function startGame() {
         let nameinput = document.getElementById("nameinput");
         Endabgabe.name = nameinput.value;
         anzeigeCanvas();
         listeners();
         console.log("maininit");
-        let canvas = document.getElementsByTagName("canvas")[0];
-        Endabgabe.crc2 = canvas.getContext("2d");
+        Endabgabe.canvas = document.getElementsByTagName("canvas")[0];
+        Endabgabe.crc2 = Endabgabe.canvas.getContext("2d");
         drawSky();
         drawHill();
         drawSun();
@@ -44,13 +44,13 @@ var Endabgabe;
         generateBird();
         //generatePickingBird();
         generateSnow();
-        imagedata = Endabgabe.crc2.getImageData(0, 0, canvas.width, canvas.height);
+        imagedata = Endabgabe.crc2.getImageData(0, 0, Endabgabe.canvas.width, Endabgabe.canvas.height);
         setTimeout(gameEnds, 180000);
         update();
     }
     function anzeigeCanvas() {
-        document.getElementsByTagName("canvas")[0].classList.remove("canvassize");
-        document.getElementsByTagName("div")[0].classList.add("canvassize");
+        document.getElementsByTagName("canvas")[0].classList.remove("invisible");
+        document.getElementsByTagName("div")[0].classList.add("invisible");
     }
     function update() {
         Endabgabe.crc2.clearRect(0, 0, 1400, 900);
@@ -131,7 +131,7 @@ var Endabgabe;
         }
     }
     function generateBird() {
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 15; i++) {
             let bird = new Endabgabe.Birds();
             objects.push(bird);
             birds.push(bird);
@@ -146,11 +146,9 @@ var Endabgabe;
         }
     }*/
     function gameEnds() {
-        document.getElementsByTagName("canvas")[0].classList.add("canvassize");
-        let ende = document.getElementById("ende");
-        ende.classList.remove("canvassize");
-        let reload = document.getElementById("reload");
-        ende.classList.remove("canvassize");
+        document.getElementsByTagName("canvas")[0].classList.add("invisible");
+        document.getElementById("ende").classList.remove("invisible");
+        document.getElementById("reload").classList.remove("invisible");
         document.getElementById("yourScore").innerText = "Deine Punktzahl:" + " " + Endabgabe.score.toString();
         document.getElementById("reload").addEventListener("click", reload);
         DatabaseClient.insert();
