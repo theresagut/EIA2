@@ -35,18 +35,32 @@ var Endabgabe;
         console.log("maininit");
         Endabgabe.canvas = document.getElementsByTagName("canvas")[0];
         Endabgabe.crc2 = Endabgabe.canvas.getContext("2d");
-        drawSky();
-        drawHill();
-        drawSun();
-        drawCloud();
-        drawCloud2();
-        drawCloud3();
+        drawBackground();
+        Endabgabe.drawClouds();
+        console.log("Clouds", Endabgabe.drawClouds);
+        Endabgabe.drawMountains();
+        console.log("Mountains", Endabgabe.drawMountains);
+        Endabgabe.drawBirdhouse();
+        console.log("Birdhouse", Endabgabe.drawBirdhouse);
+        Endabgabe.drawSnowman();
+        console.log("Snowman", Endabgabe.drawSnowman);
+        Endabgabe.drawTrees();
+        console.log("Trees", Endabgabe.drawTrees);
         generateBird();
         //generatePickingBird();
         generateSnow();
         imagedata = Endabgabe.crc2.getImageData(0, 0, Endabgabe.canvas.width, Endabgabe.canvas.height);
         setTimeout(gameEnds, 180000);
         update();
+    }
+    function drawBackground() {
+        console.log("Background");
+        let gradiant = Endabgabe.crc2.createLinearGradient(0, 0, 0, Endabgabe.crc2.canvas.height);
+        gradiant.addColorStop(0, "HSL(197,71%,73%");
+        gradiant.addColorStop(golden, "white");
+        gradiant.addColorStop(1, "HSL(0, 100%, 99%)");
+        Endabgabe.crc2.fillStyle = gradiant;
+        Endabgabe.crc2.fillRect(0, 0, Endabgabe.crc2.canvas.width, Endabgabe.crc2.canvas.height);
     }
     function anzeigeCanvas() {
         document.getElementsByTagName("canvas")[0].classList.remove("invisible");

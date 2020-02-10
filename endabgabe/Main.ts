@@ -51,17 +51,22 @@ namespace Endabgabe {
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
 
+        drawBackground();
 
+        drawClouds();
+        console.log("Clouds", drawClouds);
 
+        drawMountains();
+        console.log("Mountains", drawMountains);
 
-        drawSky();
-        drawHill();
-        drawSun();
+        drawBirdhouse();
+        console.log("Birdhouse", drawBirdhouse);
 
+        drawSnowman();
+        console.log("Snowman", drawSnowman);
 
-        drawCloud();
-        drawCloud2();
-        drawCloud3();
+        drawTrees();
+        console.log("Trees", drawTrees);
 
         generateBird();
         //generatePickingBird();
@@ -72,6 +77,17 @@ namespace Endabgabe {
         setTimeout(gameEnds, 180000);
 
         update();
+    }
+
+    function drawBackground(): void {
+        console.log("Background");       
+        let gradiant: CanvasGradient = crc2.createLinearGradient(0, 0, 0, crc2.canvas.height);
+        gradiant.addColorStop(0, "HSL(197,71%,73%");
+        gradiant.addColorStop(golden, "white");
+        gradiant.addColorStop(1, "HSL(0, 100%, 99%)");
+
+        crc2.fillStyle = gradiant;
+        crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
     }
 
 
