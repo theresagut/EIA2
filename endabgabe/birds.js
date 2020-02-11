@@ -4,6 +4,7 @@ var Endabgabe;
     class Birds extends Endabgabe.DrawObject {
         constructor() {
             super();
+            this.typ = "birds";
             this.xP = Math.random() * Endabgabe.canvas.width;
             this.yP = Math.random() * Endabgabe.canvas.height;
             this.colorBody = "hsl(" + Math.random() * 360 + ", 90%, 80%)";

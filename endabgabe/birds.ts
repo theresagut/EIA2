@@ -6,7 +6,7 @@ namespace Endabgabe {
         colorBody: string;
         colorKopfFluegel: string;
         md: boolean;
-        typ: "birds";
+        typ = "birds";
 
         constructor() {
             super();
@@ -24,7 +24,7 @@ namespace Endabgabe {
 
             else {*/
 
-                this.moveUp();
+            this.moveUp();
             //}
         }
 
