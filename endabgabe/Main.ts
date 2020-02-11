@@ -5,7 +5,7 @@ namespace Endabgabe {
     window.addEventListener("load", init); //event listener startet funktion init
 
     export let crc2: CanvasRenderingContext2D;
-
+    let server: string = "https://eia-endabgabe.herokuapp.com";
     let golden: number = 0.62;
     let objects: DrawObject[] = [];
     let birds: Birds[] = [];
@@ -96,7 +96,7 @@ namespace Endabgabe {
 
     }
 
-    
+
     function update(): void {
         crc2.clearRect(0, 0, 1400, 900);
         crc2.putImageData(imagedata, 0, 0);
@@ -249,9 +249,74 @@ namespace Endabgabe {
         crc2.fillStyle = "#000000";
 
         crc2.fillText(score.toString(), 200, 750);
+    }
 
+    export function end(): void {
 
+        let submit: HTMLButtonElement = <HTMLButtonElement>document.querySelector("button[type=submit]");
+        submit.addEventListener("click", nameScore);
+
+        document.getElementById("game").style.display = "none";
+        document.getElementById("ende").style.display = "initial";
 
     }
 
+
+    function nameScore(): void {
+        console.log("end");
+        let insertedname: any = prompt("Your Score: " + score + "\n Enter your name.");
+        if (insertedname != null) {
+            sendtohighscorelist(insertedname, score);
+        }
+    }
+    async function sendtohighscorelist(_insertedName: string, _score: number): Promise<void> {
+
+        let query: string = "name=" + _insertedName + "&highScore=" + _score;
+        let response: Response = await fetch(server + "?" + query);
+        alert(response);
+
+    }
+
+    async function gethighscorelist(): Promise<void> {
+
+        console.log("Highscores ausgeben");
+        let query: string = "command=retrieve";
+        let response: Response = await fetch(server + "?" + query);
+        let responseText: string = await response.text();
+        let finalresponse: any[] = JSON.parse(responseText);
+
+        alert(responseText);
+        let orders: HTMLDivElement = <HTMLDivElement>document.querySelector("span#highscorelist");
+        orders.innerText = responseText;
+
+
+
+        interface Highscore {
+            spieler: string;
+            score: string;
+        }
+
+        let final: Highscore[] = [];
+
+        for (let i: number = 0; i < finalresponse.length; i++) {
+            let entry: Highscore = { spieler: finalresponse[i].name, score: finalresponse[i].score };
+            for (let j: number = 0; 0 < final.length; j++) {
+                if (finalresponse[i].score > final[j].score) {
+                    final.splice(j, 0, entry);
+                    break;
+                }
+                else
+                    final.push(entry);
+
+            }
+
+            for (let m: number = 0; m < final.length; m++) {
+                let elem: HTMLParagraphElement = document.createElement("p");
+                elem.innerText = final[m].score + "  " + final[m].spieler;
+
+            }
+        }
+    }
+
+    
 }

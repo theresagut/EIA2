@@ -2,7 +2,8 @@
 //import { start } from "repl";
 var Endabgabe;
 (function (Endabgabe) {
-    window.addEventListener("load", init);
+    window.addEventListener("load", init); //event listener startet funktion init
+    let server = "https://eia-endabgabe.herokuapp.com";
     let golden = 0.62;
     let objects = [];
     let birds = [];
@@ -44,9 +45,9 @@ var Endabgabe;
         console.log("Birdhouse", Endabgabe.drawBirdhouse);
         Endabgabe.drawSnowman();
         console.log("Snowman", Endabgabe.drawSnowman);
-        Endabgabe.drawTrees();
+        Endabgabe.drawTrees(); //funktion
         console.log("Trees", Endabgabe.drawTrees);
-        generateBird();
+        generateBird(); //ruft die klasse Bird auf
         //generatePickingBird();
         generateSnow();
         imagedata = Endabgabe.crc2.getImageData(0, 0, Endabgabe.canvas.width, Endabgabe.canvas.height);
@@ -189,6 +190,51 @@ var Endabgabe;
         Endabgabe.crc2.font = "55px Amatic SC";
         Endabgabe.crc2.fillStyle = "#000000";
         Endabgabe.crc2.fillText(Endabgabe.score.toString(), 200, 750);
+    }
+    function end() {
+        let submit = document.querySelector("button[type=submit]");
+        submit.addEventListener("click", nameScore);
+        document.getElementById("game").style.display = "none";
+        document.getElementById("ende").style.display = "initial";
+    }
+    Endabgabe.end = end;
+    function nameScore() {
+        console.log("end");
+        let insertedname = prompt("Your Score: " + Endabgabe.score + "\n Enter your name.");
+        if (insertedname != null) {
+            sendtohighscorelist(insertedname, Endabgabe.score);
+        }
+    }
+    async function sendtohighscorelist(_insertedName, _score) {
+        let query = "name=" + _insertedName + "&highScore=" + _score;
+        let response = await fetch(server + "?" + query);
+        alert(response);
+    }
+    async function gethighscorelist() {
+        console.log("Highscores ausgeben");
+        let query = "command=retrieve";
+        let response = await fetch(server + "?" + query);
+        let responseText = await response.text();
+        let finalresponse = JSON.parse(responseText);
+        alert(responseText);
+        let orders = document.querySelector("span#highscorelist");
+        orders.innerText = responseText;
+        let final = [];
+        for (let i = 0; i < finalresponse.length; i++) {
+            let entry = { spieler: finalresponse[i].name, score: finalresponse[i].score };
+            for (let j = 0; 0 < final.length; j++) {
+                if (finalresponse[i].score > final[j].score) {
+                    final.splice(j, 0, entry);
+                    break;
+                }
+                else
+                    final.push(entry);
+            }
+            for (let m = 0; m < final.length; m++) {
+                let elem = document.createElement("p");
+                elem.innerText = final[m].score + "  " + final[m].spieler;
+            }
+        }
     }
 })(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=Main.js.map
