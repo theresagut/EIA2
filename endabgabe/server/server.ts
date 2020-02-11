@@ -5,7 +5,7 @@ import * as Mongo from "mongodb";
 export namespace Endabgabe {
    
     let highscore: Mongo.Collection;
-    let databaseURL: string;
+    let databaseURL: string = "mongodb://localhost:8100";
 
     let dbName: string = "eia";
     let dbCollection: string = "score";

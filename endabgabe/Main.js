@@ -1,5 +1,5 @@
 "use strict";
-//import { start } from "repl";
+Object.defineProperty(exports, "__esModule", { value: true });
 var Endabgabe;
 (function (Endabgabe) {
     window.addEventListener("load", init); //event listener startet funktion init
@@ -37,16 +37,16 @@ var Endabgabe;
         Endabgabe.canvas = document.getElementsByTagName("canvas")[0];
         Endabgabe.crc2 = Endabgabe.canvas.getContext("2d");
         drawBackground();
-        Endabgabe.drawClouds();
-        console.log("Clouds", Endabgabe.drawClouds);
-        Endabgabe.drawMountains();
-        console.log("Mountains", Endabgabe.drawMountains);
-        Endabgabe.drawBirdhouse();
-        console.log("Birdhouse", Endabgabe.drawBirdhouse);
-        Endabgabe.drawSnowman();
-        console.log("Snowman", Endabgabe.drawSnowman);
-        Endabgabe.drawTrees(); //funktion
-        console.log("Trees", Endabgabe.drawTrees);
+        drawClouds();
+        console.log("Clouds", drawClouds);
+        drawMountains();
+        console.log("Mountains", drawMountains);
+        drawBirdhouse();
+        console.log("Birdhouse", drawBirdhouse);
+        drawSnowman();
+        console.log("Snowman", drawSnowman);
+        drawTrees(); //funktion
+        console.log("Trees", drawTrees);
         generateBird(); //ruft die klasse Bird auf
         //generatePickingBird();
         generateSnow();
@@ -89,7 +89,7 @@ var Endabgabe;
     //Schneeball
     function generateSnowball(_xMouse, _yMouse) {
         console.log(snowball);
-        snowball = new Endabgabe.Snowball(_xMouse, _yMouse);
+        snowball = new Snowball(_xMouse, _yMouse);
         //            console.log(snowball);
         console.log("neuer schneeball");
         objects.push(snowball);
@@ -113,7 +113,7 @@ var Endabgabe;
                                 if (yMouse >= objects[a].yP - 25 && yMouse <= objects[a].yP + 60) {
                                     console.log("object getroffen");
                                     objects.splice(a, 1);
-                                    let bird = new Endabgabe.Birds();
+                                    let bird = new Birds();
                                     objects.push(bird);
                                     birds.push(bird);
                                     if (objects[a].typ == "birds") {
@@ -141,13 +141,13 @@ var Endabgabe;
     //Schnee
     function generateSnow() {
         for (let i = 0; i < 70; i++) {
-            let snowflake = new Endabgabe.Snow();
+            let snowflake = new Snow();
             objects.push(snowflake);
         }
     }
     function generateBird() {
         for (let i = 0; i < 15; i++) {
-            let bird = new Endabgabe.Birds();
+            let bird = new Birds();
             objects.push(bird);
             birds.push(bird);
         }
@@ -155,9 +155,9 @@ var Endabgabe;
     /*function pickingBirds(): void {
         for (let i: number = 0; i < 5; i++) {
     
-            let child: slowChildren = new slowChildren();
-            objects.push(child);
-            children.push(child);
+            let bird: pickingBird = new pickingBirds();
+            objects.push(bird);
+            birds.push(bird);
         }
     }*/
     function gameEnds() {
@@ -198,6 +198,7 @@ var Endabgabe;
         document.getElementById("ende").style.display = "initial";
     }
     Endabgabe.end = end;
+    //server
     function nameScore() {
         console.log("end");
         let insertedname = prompt("Your Score: " + Endabgabe.score + "\n Enter your name.");

@@ -6,7 +6,7 @@ const Mongo = require("mongodb");
 var Endabgabe;
 (function (Endabgabe) {
     let highscore;
-    let databaseURL;
+    let databaseURL = "mongodb://localhost:8100";
     let dbName = "eia";
     let dbCollection = "score";
     databaseURL = "mongodb+srv://test:1234@cluster0-icb8i.mongodb.net/test?retryWrites=true&w=majority";

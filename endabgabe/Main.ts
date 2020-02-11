@@ -1,4 +1,4 @@
-//import { start } from "repl";
+import { start } from "repl";
 
 namespace Endabgabe {
 
@@ -204,9 +204,9 @@ namespace Endabgabe {
     /*function pickingBirds(): void {
         for (let i: number = 0; i < 5; i++) {
     
-            let child: slowChildren = new slowChildren();
-            objects.push(child);
-            children.push(child);
+            let bird: pickingBird = new pickingBirds();
+            objects.push(bird);
+            birds.push(bird);
         }
     }*/
 
@@ -260,6 +260,8 @@ namespace Endabgabe {
         document.getElementById("ende").style.display = "initial";
 
     }
+
+//server
 
 
     function nameScore(): void {
