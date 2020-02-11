@@ -4,6 +4,7 @@ var Endabgabe;
     class Snowball extends Endabgabe.DrawObject {
         constructor(_x, _y) {
             super();
+            this.typ = "snowball";
             this.target = [_x, _y];
             this.xP = 700;
             this.yP = 200;
