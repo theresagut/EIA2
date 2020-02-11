@@ -2,7 +2,7 @@
 
 namespace Endabgabe {
 
-    window.addEventListener("load", init);
+    window.addEventListener("load", init); //event listener startet funktion init
 
     export let crc2: CanvasRenderingContext2D;
 
@@ -65,13 +65,12 @@ namespace Endabgabe {
         drawSnowman();
         console.log("Snowman", drawSnowman);
 
-        drawTrees();
+        drawTrees();                        //funktion
         console.log("Trees", drawTrees);
 
-        generateBird();
+        generateBird(); //ruft die klasse Bird auf
         //generatePickingBird();
         generateSnow();
-
 
         imagedata = crc2.getImageData(0, 0, canvas.width, canvas.height);
         setTimeout(gameEnds, 180000);
@@ -97,8 +96,7 @@ namespace Endabgabe {
 
     }
 
-
-
+    
     function update(): void {
         crc2.clearRect(0, 0, 1400, 900);
         crc2.putImageData(imagedata, 0, 0);

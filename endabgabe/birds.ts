@@ -20,27 +20,15 @@ namespace Endabgabe {
             if (this.xP <= 0)
             this.xP = canvas.width;
             /*if (this.md == true)
-                this.moveDown();
+                this.pick();
 
             else {*/
 
-            this.moveUp();
+            this.fly();
             //}
         }
 
-        /*moveDown(): void {
-            this.xD = 10;
-            this.yD = 3;
-
-            this.xP += this.xD;
-            this.yP += this.yD;
-
-            if (this.xP > 1400) {
-                this.md = false;
-            }
-        }
-*/
-        moveUp(): void {
+        fly(): void {
 
             this.xD = Math.random() * (-20);
             this.yD = Math.random() * (0);
