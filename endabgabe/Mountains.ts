@@ -44,6 +44,12 @@ namespace Endabgabe {
         crc2.moveTo(1150, 110);
         crc2.lineTo(1000, 400);
         crc2.lineTo(1400, 400);
+        crc2.moveTo(1300, 190);
+        crc2.lineTo(1100, 400);
+        crc2.lineTo(1450, 400);
+        crc2.moveTo(1450, 80);
+        crc2.lineTo(1250, 400);
+        crc2.lineTo(1700, 400);
         crc2.moveTo(1600, 90);
         crc2.lineTo(1400, 400);
         crc2.lineTo(1900, 400);
@@ -58,6 +64,13 @@ namespace Endabgabe {
         crc2.closePath();
         crc2.fill();
        
+        crc2.fillStyle = "HSLA(0,100%,99%)";
+        crc2.beginPath();
+        crc2.moveTo(1600, 90);
+        crc2.lineTo(1560, 150);
+        crc2.lineTo(1670, 150);
+        crc2.closePath();
+        crc2.fill();
        
        
            //Vordere Reihe
