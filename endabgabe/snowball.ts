@@ -39,13 +39,5 @@ namespace Endabgabe {
             this.yP += this.yD / 30;
 
         }
-
-
-
-
-
-
-
-
     }
 }
