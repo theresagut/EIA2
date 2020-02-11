@@ -232,22 +232,22 @@ var Endabgabe;
     }
     function drawScore() {
         Endabgabe.crc2.beginPath();
-        Endabgabe.crc2.moveTo(50, 670);
-        Endabgabe.crc2.lineTo(300, 670);
+        Endabgabe.crc2.moveTo(50, 700);
+        Endabgabe.crc2.lineTo(300, 700);
         Endabgabe.crc2.lineTo(300, 770);
         Endabgabe.crc2.lineTo(50, 770);
         Endabgabe.crc2.closePath();
-        Endabgabe.crc2.fillStyle = "#ffffff";
+        Endabgabe.crc2.fillStyle = "HSLA(182,25%,50%)";
         Endabgabe.crc2.fill();
-        Endabgabe.crc2.lineWidth = 3.5;
-        Endabgabe.crc2.strokeStyle = "#7eb6e9";
+        Endabgabe.crc2.lineWidth = 1.5;
+        Endabgabe.crc2.strokeStyle = "black";
         Endabgabe.crc2.stroke();
-        Endabgabe.crc2.font = "30px Quicksand";
+        Endabgabe.crc2.font = "55px Amatic SC";
         Endabgabe.crc2.fillStyle = "#000000";
-        Endabgabe.crc2.fillText("Score", 135, 700);
-        Endabgabe.crc2.font = "30px Quicksand";
+        Endabgabe.crc2.fillText("Score", 85, 750);
+        Endabgabe.crc2.font = "55px Amatic SC";
         Endabgabe.crc2.fillStyle = "#000000";
-        Endabgabe.crc2.fillText(Endabgabe.score.toString(), 135, 730);
+        Endabgabe.crc2.fillText(Endabgabe.score.toString(), 200, 750);
     }
 })(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=Main.js.map

@@ -305,28 +305,28 @@ namespace Endabgabe {
 
     function drawScore(): void {
         crc2.beginPath();
-        crc2.moveTo(50, 670);
-        crc2.lineTo(300, 670);
+        crc2.moveTo(50, 700);
+        crc2.lineTo(300, 700);
         crc2.lineTo(300, 770);
         crc2.lineTo(50, 770);
         crc2.closePath();
-        crc2.fillStyle = "#ffffff";
+        crc2.fillStyle = "HSLA(182,25%,50%)";
         crc2.fill();
-        crc2.lineWidth = 3.5;
-        crc2.strokeStyle = "#7eb6e9";
+        crc2.lineWidth = 1.5;
+        crc2.strokeStyle = "black";
         crc2.stroke();
 
-        crc2.font = "30px Quicksand";
+        crc2.font = "55px Amatic SC";
         crc2.fillStyle = "#000000";
-        crc2.fillText("Score", 135, 700);
+        crc2.fillText("Score", 85, 750);
 
-        crc2.font = "30px Quicksand";
+        crc2.font = "55px Amatic SC";   
         crc2.fillStyle = "#000000";
 
-        crc2.fillText(score.toString(), 135, 730);
+        crc2.fillText(score.toString(), 200, 750);
 
 
 
     }
-
+    
 }
