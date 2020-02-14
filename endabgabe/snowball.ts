@@ -3,7 +3,7 @@ namespace Endabgabe {
     export class Snowball extends DrawObject {
         scale: number;
         target: number[];
-        typ = "snowball";
+        typ: string = "snowball";
 
         constructor(_x: number, _y: number) {
             super();

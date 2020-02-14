@@ -6,7 +6,7 @@ namespace Endabgabe {
         colorBody: string;
         colorKopfFluegel: string;
         md: boolean;
-        typ = "birds";
+        typ: string = "birds";
 
         constructor() {
             super();

@@ -3,27 +3,31 @@
 var Endabgabe;
 (function (Endabgabe) {
     window.addEventListener("load", init); //event listener startet funktion init
-    let server = "https://eia-endabgabe.herokuapp.com";
+    Endabgabe.server = "https://eia-endabgabe.herokuapp.com";
     let golden = 0.62;
     let objects = [];
     let birds = [];
     let imagedata;
     let fps = 25;
-    let i = 0;
     let xMouse;
     let yMouse;
     let snowball;
     Endabgabe.score = 0;
-    let gameEndbool = false;
     let start;
+    let ende;
+    let reloadButton;
+    let yourScore;
+    let game;
     function listeners() {
         console.log("listeners");
         document.getElementsByTagName("canvas")[0].addEventListener("click", mouseEvent);
         //"Click"-Eventlistener vom Typ MouseEvent an canvas
     }
     function init() {
-        document.getElementById("start").addEventListener("click", startGame);
-        document.getElementById("ende").classList.add("invisible");
+        start = document.getElementById("start");
+        start.addEventListener("click", startGame);
+        ende = document.getElementById("ende");
+        ende.classList.add("invisible");
     }
     //Nach laden der Seite wird die Funktion init aufgerufen, die an das HtmlElement "Anleitung" einen click-Eventlistener anhängt, 
     //der die Funktion startGame aufruft
@@ -103,8 +107,8 @@ var Endabgabe;
     }
     function checkIfHit() {
         for (let i = 0; i < birds.length; i++) {
-            if (xMouse >= birds[i].xP - 60 && xMouse <= birds[i].xP + 20) {
-                if (yMouse >= birds[i].yP - 25 && yMouse <= birds[i].yP + 60) {
+            if (xMouse >= birds[i].xP - 100 && xMouse <= birds[i].xP + 100) {
+                if (yMouse >= birds[i].yP - 100 && yMouse <= birds[i].yP + 100) {
                     console.log("vogel getroffen", birds[i]);
                     birds.splice(i, 1);
                     for (let a = 0; a < objects.length; a++) {
@@ -162,10 +166,12 @@ var Endabgabe;
     }*/
     function gameEnds() {
         document.getElementsByTagName("canvas")[0].classList.add("invisible");
-        document.getElementById("ende").classList.remove("invisible");
-        document.getElementById("reload").classList.remove("invisible");
-        document.getElementById("yourScore").innerText = "Deine Punktzahl:" + " " + Endabgabe.score.toString();
-        document.getElementById("reload").addEventListener("click", reload);
+        ende.classList.remove("invisible");
+        reloadButton = document.getElementById("reload");
+        reloadButton.classList.remove("invisible");
+        yourScore = document.getElementById("yourScore");
+        yourScore.innerText = "Deine Punktzahl:" + " " + Endabgabe.score.toString();
+        reloadButton.addEventListener("click", reload);
         DatabaseClient.insert();
         DatabaseClient.getHighscore();
     }
@@ -193,49 +199,28 @@ var Endabgabe;
     }
     function end() {
         let submit = document.querySelector("button[type=submit]");
-        submit.addEventListener("click", nameScore);
-        document.getElementById("game").style.display = "none";
-        document.getElementById("ende").style.display = "initial";
+        //submit.addEventListener("click", nameScore);
+        game = document.getElementById("game");
+        game.style.display = "none";
+        ende = document.getElementById("ende");
+        ende.style.display = "initial";
     }
     Endabgabe.end = end;
     //server
-    function nameScore() {
-        console.log("end");
-        let insertedname = prompt("Your Score: " + Endabgabe.score + "\n Enter your name.");
-        if (insertedname != null) {
-            sendtohighscorelist(insertedname, Endabgabe.score);
-        }
-    }
-    async function sendtohighscorelist(_insertedName, _score) {
-        let query = "name=" + _insertedName + "&highScore=" + _score;
-        let response = await fetch(server + "?" + query);
-        alert(response);
-    }
-    async function gethighscorelist() {
-        console.log("Highscores ausgeben");
-        let query = "command=retrieve";
-        let response = await fetch(server + "?" + query);
-        let responseText = await response.text();
-        let finalresponse = JSON.parse(responseText);
-        alert(responseText);
-        let orders = document.querySelector("span#highscorelist");
-        orders.innerText = responseText;
-        let final = [];
-        for (let i = 0; i < finalresponse.length; i++) {
-            let entry = { spieler: finalresponse[i].name, score: finalresponse[i].score };
-            for (let j = 0; 0 < final.length; j++) {
-                if (finalresponse[i].score > final[j].score) {
-                    final.splice(j, 0, entry);
-                    break;
-                }
-                else
-                    final.push(entry);
-            }
-            for (let m = 0; m < final.length; m++) {
-                let elem = document.createElement("p");
-                elem.innerText = final[m].score + "  " + final[m].spieler;
+    /*
+        function nameScore(): void {
+            console.log("end");
+            let insertedname: any = prompt("Your Score: " + score + "\n Enter your name.");
+            if (insertedname != null) {
+                sendtohighscorelist(insertedname, score);
             }
         }
-    }
+        async function sendtohighscorelist(_insertedName: string, _score: number): Promise<void> {
+    
+            let query: string = "name=" + _insertedName + "&highScore=" + _score;
+            let response: Response = await fetch(server + "?" + query);
+            alert(response);
+    
+        }*/
 })(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=Main.js.map

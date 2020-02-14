@@ -5,21 +5,26 @@ namespace Endabgabe {
     window.addEventListener("load", init); //event listener startet funktion init
 
     export let crc2: CanvasRenderingContext2D;
-    let server: string = "https://eia-endabgabe.herokuapp.com";
+    export let server: string = "https://eia-endabgabe.herokuapp.com";
     let golden: number = 0.62;
     let objects: DrawObject[] = [];
     let birds: Birds[] = [];
     let imagedata: ImageData;
     let fps: number = 25;
-    let i: number = 0;
     let xMouse: number;
     let yMouse: number;
     let snowball: Snowball;
     export let name: string;
     export let score: number = 0;
-    let gameEndbool: boolean = false;
     export let canvas: HTMLCanvasElement;
     let start: HTMLButtonElement;
+    let ende: HTMLDivElement;
+    let reloadButton: HTMLButtonElement;
+    let yourScore: HTMLFieldSetElement;
+    let game: HTMLDivElement;
+
+
+
 
 
     function listeners(): void {
@@ -30,8 +35,10 @@ namespace Endabgabe {
 
     }
     function init(): void {
-        document.getElementById("start").addEventListener("click", startGame);
-        document.getElementById("ende").classList.add("invisible");
+        start = <HTMLButtonElement>document.getElementById("start");
+        start.addEventListener("click", startGame);
+        ende = <HTMLDivElement>document.getElementById("ende");
+        ende.classList.add("invisible");
 
     }
     //Nach laden der Seite wird die Funktion init aufgerufen, die an das HtmlElement "Anleitung" einen click-Eventlistener anhängt, 
@@ -79,7 +86,7 @@ namespace Endabgabe {
     }
 
     function drawBackground(): void {
-        console.log("Background");       
+        console.log("Background");
         let gradiant: CanvasGradient = crc2.createLinearGradient(0, 0, 0, crc2.canvas.height);
         gradiant.addColorStop(0, "HSL(197,71%,73%");
         gradiant.addColorStop(golden, "white");
@@ -141,8 +148,8 @@ namespace Endabgabe {
 
     function checkIfHit(): void {
         for (let i: number = 0; i < birds.length; i++) {
-            if (xMouse >= birds[i].xP - 60 && xMouse <= birds[i].xP + 20) {
-                if (yMouse >= birds[i].yP - 25 && yMouse <= birds[i].yP + 60) {
+            if (xMouse >= birds[i].xP - 100 && xMouse <= birds[i].xP + 100) {
+                if (yMouse >= birds[i].yP - 100 && yMouse <= birds[i].yP + 100) {
                     console.log("vogel getroffen", birds[i]);
                     birds.splice(i, 1);
                     for (let a: number = 0; a < objects.length; a++) {
@@ -151,7 +158,7 @@ namespace Endabgabe {
                                 if (yMouse >= objects[a].yP - 25 && yMouse <= objects[a].yP + 60) {
                                     console.log("object getroffen");
                                     objects.splice(a, 1);
-                                    let bird = new Birds();
+                                    let bird: Birds = new Birds();
                                     objects.push(bird);
                                     birds.push(bird);
 
@@ -212,10 +219,12 @@ namespace Endabgabe {
 
     function gameEnds(): void {
         document.getElementsByTagName("canvas")[0].classList.add("invisible");
-        document.getElementById("ende").classList.remove("invisible");
-        document.getElementById("reload").classList.remove("invisible");
-        document.getElementById("yourScore").innerText = "Deine Punktzahl:" + " " + score.toString();
-        document.getElementById("reload").addEventListener("click", reload);
+        ende.classList.remove("invisible");
+        reloadButton = <HTMLButtonElement>document.getElementById("reload");
+        reloadButton.classList.remove("invisible");
+        yourScore = <HTMLFieldSetElement>document.getElementById("yourScore");
+        yourScore.innerText = "Deine Punktzahl:" + " " + score.toString();
+        reloadButton.addEventListener("click", reload);
 
         DatabaseClient.insert();
         DatabaseClient.getHighscore();
@@ -226,7 +235,7 @@ namespace Endabgabe {
         window.location.reload();
     }
 
-     
+
 
     function drawScore(): void {
         crc2.beginPath();
@@ -245,7 +254,7 @@ namespace Endabgabe {
         crc2.fillStyle = "#000000";
         crc2.fillText("Score", 85, 750);
 
-        crc2.font = "55px Amatic SC";   
+        crc2.font = "55px Amatic SC";
         crc2.fillStyle = "#000000";
 
         crc2.fillText(score.toString(), 200, 750);
@@ -254,16 +263,18 @@ namespace Endabgabe {
     export function end(): void {
 
         let submit: HTMLButtonElement = <HTMLButtonElement>document.querySelector("button[type=submit]");
-        submit.addEventListener("click", nameScore);
+        //submit.addEventListener("click", nameScore);
 
-        document.getElementById("game").style.display = "none";
-        document.getElementById("ende").style.display = "initial";
+        game = <HTMLDivElement>document.getElementById("game");
+        game.style.display = "none";
+        ende = <HTMLDivElement>document.getElementById("ende");
+        ende.style.display = "initial";
 
     }
 
-//server
+    //server
 
-
+/*
     function nameScore(): void {
         console.log("end");
         let insertedname: any = prompt("Your Score: " + score + "\n Enter your name.");
@@ -277,48 +288,6 @@ namespace Endabgabe {
         let response: Response = await fetch(server + "?" + query);
         alert(response);
 
-    }
+    }*/
 
-    async function gethighscorelist(): Promise<void> {
-
-        console.log("Highscores ausgeben");
-        let query: string = "command=retrieve";
-        let response: Response = await fetch(server + "?" + query);
-        let responseText: string = await response.text();
-        let finalresponse: any[] = JSON.parse(responseText);
-
-        alert(responseText);
-        let orders: HTMLDivElement = <HTMLDivElement>document.querySelector("span#highscorelist");
-        orders.innerText = responseText;
-
-
-
-        interface Highscore {
-            spieler: string;
-            score: string;
-        }
-
-        let final: Highscore[] = [];
-
-        for (let i: number = 0; i < finalresponse.length; i++) {
-            let entry: Highscore = { spieler: finalresponse[i].name, score: finalresponse[i].score };
-            for (let j: number = 0; 0 < final.length; j++) {
-                if (finalresponse[i].score > final[j].score) {
-                    final.splice(j, 0, entry);
-                    break;
-                }
-                else
-                    final.push(entry);
-
-            }
-
-            for (let m: number = 0; m < final.length; m++) {
-                let elem: HTMLParagraphElement = document.createElement("p");
-                elem.innerText = final[m].score + "  " + final[m].spieler;
-
-            }
-        }
-    }
-
-    
 }
