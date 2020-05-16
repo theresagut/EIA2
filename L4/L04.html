@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haushaltshilfe Formular_DataStructures</title>
+    <link rel="stylesheet" href="L04_Style.css">
+    <script src="L04_Code.js" async></script>
+
+</head>
+
+<body>
+    <h1>Haushaltshilfe Formular</h1>
+    <div id="form">
+        <form>
+            <fieldset id="grocery">
+                <legend>Einkaufen</legend>
+                <input name="Bevorzugter Supermarkt" list="market" placeholder="Supermarkt wählen" value="" />
+                <datalist id="market">
+                    <option name="Rewe" value="Rewe">Rewe</option>
+                    <option name="Aldi" value="Aldi">Aldi</option>
+                    <option name="Lidl" value="Lidl">Lidl</option>
+                    <option name="Edeka" value="Edeka">Edeka</option>
+                </datalist>
+                <input name="Artikel" list="article" placeholder="Artikel auswählen" />
+                <datalist id="article">
+                    <option name="Brot" value="Brot" unit="Laib" price="2.00">Brot</option>
+                    <option name="Croissants" value="Croissants" unit="Stück" price="0.70">Croissants</option>
+                    <option name="Eier" value="Eier" unit="10er-Packung" price="2.50">Eier</option>
+                    <option name="Milch" value="Milch" unit="1L-Karton" price="0.78">Milch</option>
+                    <option name="Mehl" value="Mehl" unit="1kg-Packung" price="1.40">Mehl</option>
+                    <option name="Zucker" value="Zucker" unit="1kg-Packung" price="1.40">Zucker</option>
+                    <option name="Kiwis" value="Kiwis" unit="1kg" price="2.00">Kiwis</option>
+                    <option name="Nudeln" value="Nudeln" unit="500g-Packung" price="1.50">Nudeln</option>
+                    <option name="Wasser" value="Wasser" unit="1L-Flasche" price="0.50">Wasser</option>
+                </datalist>
+                <span id="slider">
+                    <span>
+                        Menge:
+                        1
+                        <input type="range" min="1.0" max="5.0" name="Menge" id="Quantity" step="1.0" value="1.0">
+                        5
+                    </span>
+                </span>
+                <button id="cart" type="button" id="hello">Zur Bestellung hinzufügen</button>
+            </fieldset>
+
+            <fieldset id="money">
+                <legend>Geld einzahlen/abheben lassen</legend>
+                <input type="checkbox" value="Geld einzahlen" name="cash" id="einzahlen" /><label for="einzahlen">Geld
+                    einzahlen</label>
+                <input type="checkbox" value="Geld abheben" name="cash" id="abheben" /><label for="abheben">Geld
+                    abheben</label><br>
+                <span id="sliderr">
+                    <span>
+                        10
+                        <input price="0" type="range" name="bargeld" min="20" max="150" id="Bank" step="5" value="20">
+                        150
+                    </span>
+                </span>
+                <button id="getCash" type="button">Zur Bestellung hinzufügen</button>
+            </fieldset>
+
+            <fieldset id="household">
+                <legend>Haushaltsarbeiten</legend>
+                <input type="checkbox" price="20" value="Rasen mähen" name="toDo" id="rasen" /><label for="Rasen">Rasen
+                    mähen</label><br>
+                <input type="checkbox" price="15" value="Fenster putzen" name="toDo" id="fenster" /><label
+                    for="Fenster">Fenster putzen</label><br>
+                <input type="checkbox" price="5" value="Post abholen" name="toDo" id="abholen" /><label
+                    for="abholen">Post abholen</label><br>
+                <input type="checkbox" price="5" value="Staubsaugen" name="toDo" id="saugen" /><label
+                    for="saugen">Staubsaugen</label><br>
+                <button id="householdDone" type="button">Zur Bestellung hinzufügen</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <div id="order">
+        <fieldset>
+            <legend>Bestellübersicht</legend>
+            <table id="table">
+                <tr>
+                    <th>Artikel</th>
+                    <th>Preis</th>
+                    <th>Menge</th>
+                    <th>Einheit</th>
+                    <th>Supermarkt</th>
+                </tr>
+            </table>
+            <table id="table2">
+                <tr>
+                    <th>Aufgabe</th>
+                    <th>Preis</th>
+                </tr>
+            </table>
+            <table id="table3">
+                <tr>
+                    <th>Aufgabe</th>
+                    <th>Preis</th>
+                </tr>
+            </table>
+        </fieldset>
+    </div>
+
+</body>
+
+</html>
