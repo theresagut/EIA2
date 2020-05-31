@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Nachbarschaftshilfe</title>
+    <link rel="stylesheet" href="Nachbarschaftshilfe.css" type="text/css" media="screen" />
+    <script src="GenerateContent.js" type="text/javascript" charset="utf-8"></script>
+    <script src="Nachbarschaftshilfe.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Home Helper</h1>
+       </header>
+
+    <form id="orderForm" method="GET">
+        <div>
+            <fieldset id="Shopping">
+                <legend>Shopping</legend>
+            </fieldset>
+            <fieldset id="Amount">
+                <legend>Amount</legend>
+                <input type="number" name="Amount" id="Amount" min="1" max="10" value="1">
+            </fieldset>
+            <fieldset id="Supermarked">
+                <legend>Supermarked</legend>
+            </fieldset>
+            <fieldset id="Household">
+                <legend>Household help</legend>
+            </fieldset>
+            <fieldset id="Withdrawals">
+                <legend>Withdrawals</legend>
+            </fieldset>
+            <fieldset id="Money">
+                <legend>Money</legend>
+                <input type="number" name="Money" id="Money" min="0" max="500" step="5" value="0">
+            </fieldset>
+
+        </div>
+    </form>
+    <div>
+        <h2>Your order</h2>
+        <div id="order">
+            ...
+        </div>
+        <button type="reset" form="orderForm">Reset</button>
+        <button type="button" form="orderForm">Order</button>
+    </div>
+    
+</body>
+
+</html>
