@@ -1,0 +1,212 @@
+h1 { 
+    text-align: center;
+    text-shadow: 2px 2px 5px grey;
+    font-family: 'Times New Roman', Times, serif;
+   
+}
+
+h3 {
+    text-align: center;
+    text-decoration: underline;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+#Zeichenfläche {
+
+    text-align: center;
+    width: 350px;
+    margin: 2%; 
+    border-width: 3px;
+    border-style: outset;
+    border-color: black;
+    border-radius: 5px; 
+}
+
+#Farbauswahl { 
+
+    width: 350px;
+    margin: 2%; 
+    border-width: 3px;
+    border-style: outset;
+    border-color: black;
+    border-radius: 5px; 
+}
+
+#Symbol { 
+
+
+    width: 350px;
+    margin: 2%; 
+    border-width: 3px;
+    border-style: outset;
+    border-color: black;
+    border-radius: 5px; 
+}
+
+ canvas {
+    left: 380px; 
+    top: 60px; 
+    position: absolute;
+    margin: 2%; 
+    border-width: 3px; 
+    border-color: black;
+    border-style: double;
+    
+}
+
+#SaveSymbol {
+    width: 350px;
+}
+
+#neuCanvas {
+    left: 500px; 
+    margin: 2%;
+    position: relative; 
+    top: -100px;
+
+}
+
+#speichern { 
+    top: -100px; 
+    position: relative;
+    left: 650px;
+}
+
+#alteBilder { 
+    text-align: center;
+    width: 350px;
+    margin: 2%; 
+    border-width: 3px;
+    border-style: outset;
+    border-color: black;
+    border-radius: 5px;
+    float: right; 
+    position: relative; 
+    top: -770px; 
+}
+
+#Submit { 
+    width: 350px; 
+}
+
+button {
+    border-radius: 5px; 
+    background-color: #F2F2F2;
+    border-style: outset;
+    color: black;
+    border: 2px solid #555555;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+  
+button:hover {
+    background-color: #555555;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+table {
+    border-spacing: 15px; 
+}
+
+.Farbe1 {
+    background-color: #F2F5A9;
+}
+
+.Farbe6 {
+    background-color: #FACC2E;
+}
+
+.Farbe2 {
+    background-color: #F5A9A9;
+}
+
+.Farbe7 {
+    background-color: #FE2E2E;
+}
+
+.Farbe3 {
+    background-color: #D0A9F5;
+}
+
+.Farbe8 {
+    background-color: #A901DB;
+}
+
+.Farbe4 {
+    background-color: #A9BCF5;
+}
+
+.Farbe9 { 
+    background-color: #0174DF;
+}
+
+.Farbe5 {
+    background-color: #A9F5D0;
+}
+
+.Farbe10 { 
+    background-color: #04B431;
+}
+
+.Farbe11 { 
+    background-color: #F2F5A9; 
+    background-image: linear-gradient(#F2F5A9, #FACC2E); 
+}
+
+.Farbe12 { 
+    background-color: #F5A9A9; 
+    background-image: linear-gradient(#F5A9A9, #FE2E2E); 
+}
+
+.Farbe13 { 
+    background-color: #D0A9F5; 
+    background-image: linear-gradient(#D0A9F5, #A901DB); 
+}
+
+.Farbe14 { 
+    background-color: #A9BCF5; 
+    background-image: linear-gradient(#A9BCF5, #0174DF); 
+}
+
+.Farbe15 { 
+    background-color: #A9F5D0; 
+    background-image: linear-gradient(#A9F5D0, #04B431); 
+}
+
+.Farbe16 { 
+    background-color: white;
+}
+
+.Farbe17 {
+    background-color: black;
+}
+
+.Farbe18 {
+    background-color: white; 
+    background-image: linear-gradient(white, black); 
+}
+
+.FF {
+   
+        border: 1px solid black;
+        border-style: outset; 
+        padding: 5px;
+        position: middle; 
+        size: 10px; 
+}
+
+.Flächenfarbe {
+    left: 50px; 
+    top: -10px;
+    position: relative;
+}
+
+.Formen {
+    
+    text-align: center;
+}
