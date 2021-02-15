@@ -2,7 +2,7 @@
 var feuerwerkEndabgabe;
 (function (feuerwerkEndabgabe) {
     window.addEventListener("load", handleLoad);
-    let serverPage = "https://sarahabschlussarbeit.herokuapp.com/"; //"http://localhost:5001/";
+    let serverPage = "https://eia-endabgabe.herokuapp.com"; //"http://localhost:5001/" wenn man es lokal machen möchte;
     let form;
     let quantity;
     let color;
