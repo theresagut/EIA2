@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Http = require("http");
 const Url = require("url");
 const Mongo = require("mongodb");
-var Firework;
-(function (Firework) {
+var feuerwerkEndabgabe;
+(function (feuerwerkEndabgabe) {
     let fireworkCollection;
     let databaseUrl = "mongodb+srv://test:EIA2@cluster0.icb8i.mongodb.net/Cluster0?retryWrites=true&w=majority"; // "mongodb://localhost:27017";
     let port = process.env.PORT;
@@ -79,5 +79,5 @@ var Firework;
     //     _response.write(jsonResult); //Übergabe der Daten an den client
     //     _response.end();
     // }
-})(Firework = exports.Firework || (exports.Firework = {}));
+})(feuerwerkEndabgabe = exports.feuerwerkEndabgabe || (exports.feuerwerkEndabgabe = {}));
 //# sourceMappingURL=server.js.map

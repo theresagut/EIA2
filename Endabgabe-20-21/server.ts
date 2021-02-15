@@ -2,7 +2,7 @@ import * as Http from "http";
 import * as Url from "url";
 import * as Mongo from "mongodb";
 
-export namespace Firework {
+export namespace feuerwerkEndabgabe {
 
     export interface Rocket {
         [type: string]: string | string[] | undefined;
@@ -111,32 +111,5 @@ export namespace Firework {
 
     //     _response.end();
     // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
