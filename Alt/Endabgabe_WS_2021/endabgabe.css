@@ -1,0 +1,139 @@
+h1 { 
+    text-align: center;
+    text-shadow: 2px 2px 5px rgb(255, 255, 255);
+    font-family: 'Times New Roman', Times, serif;
+    color:rgb(255, 255, 255);
+   
+}
+
+h3 {
+    text-align: center;
+    text-decoration: underline;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+body {
+    background-image: url("Pic/firework-background.jpg");
+    background-color: #cccccc;
+    font-family: 'Times New Roman', Times, serif;
+   }
+
+
+#Zeichenfläche {
+
+    text-align: center;
+    width: 550px;
+    margin: 2%; 
+    background-color: #F2F2F2;
+    border-width: 3px;
+    border-style: outset;
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px; 
+
+}
+
+#Farbauswahl { 
+
+    width: 350px;
+    margin: 2%; 
+    background-color: #F2F2F2;
+    border-width: 3px;
+    border-style: outset;
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px; 
+    
+}
+
+
+#Symbol {
+    width: 350px;
+    margin: 2%;
+    border-width: 3px;
+    border-style: outset;
+    border-color: white;
+    border-radius: 5px;
+    background-color: #F2F2F2;
+}
+
+canvas {
+    left: 400px;
+    top: 70px;
+    width: 1050px;
+    position: absolute;
+    margin: 2%;
+    border-width: 3px;
+    border-color: white;
+    border-style: double;
+    background-color: #F2F2F2;
+}
+
+#SaveSymbol {
+    width: 350px;
+}
+
+#neuCanvas {
+    left: 390px;
+    margin: 2%;
+    position: relative; 
+    top: 150px;
+
+}
+
+#speichern { 
+    top: 150px; 
+    position: relative;
+    left: 1295px;
+}
+
+#alteBilder {
+    text-align: center;
+    width: 350px;
+    margin: 2%;
+    border-width: 3px;
+    border-style: outset;
+    border-color: white;
+    border-radius: 5px;
+    float: right;
+    background-color: #F2F2F2;
+    margin-right: 28px;
+    margin-top: -608px;
+}
+
+#Submit { 
+    width: 350px; 
+}
+
+button {
+    transform: scale(1.5);
+    border-radius: 5px; 
+    background-color: #F2F2F2;
+    border-style: outset;
+    color: black;
+    border: 2px solid #555555;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+  
+button:hover {
+    background-color: #555555;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+table {
+    border-spacing: 15px; 
+}
+
+
+
+.Flächenfarbe {
+    left: 50px; 
+    top: -10px;
+    position: relative;
+}
+
+.Formen {
+    
+    text-align: center;
+}
